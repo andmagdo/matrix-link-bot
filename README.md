@@ -11,3 +11,5 @@ You **MUST** do `sudo apt install libolm-dev` for encrypted room support
 
 As I believe this is bot for chats that are encrypted (either by choice or because it is default on many matrix clients),
 Requirements.txt by default installs the encryption-enabled Matrix API
+
+Although I have no clue if this will even work on Windows, on Windows, there is need for the magic binary found here `pip install python-magic-bin`
