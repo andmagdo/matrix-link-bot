@@ -1,7 +1,7 @@
 # matrix-link-bot
-This bot uses links posted in a matrix chat, checks them against a list of file extentions, and uploads if the extention is recognised
+This bot uses links posted in a matrix chat, checks them against a list of file MIME types (extracted using magic), and uploads if the MIME type is recognised
 
-## Please note **VERY** alpha to the point of unusability
+## Please note **VERY** alpha to the point of unusability!
 
 Once done, however, it should be using [matrix-nio](https://github.com/poljar/matrix-nio), and have support for encrypted rooms
 
