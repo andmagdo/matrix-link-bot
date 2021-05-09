@@ -1,29 +1,26 @@
 from urllib.parse import urlparse
 from os.path import splitext
+import magic
 
-extensions = ["jpg", "jpeg", "png", "tif", "tiff", "gif", "mp4", "bmp", "mkv", "webp", "heif", "svg", "txt",
-              "md", "mp3"]
+mimes = ["video", "image"]  # Note, only checks five characters! - for now, hardcoded, maybe put in a config?
+mime = magic.Magic(mime=True)
 
 
-def getType(url):
+def getType(url):  # Used to find the file and extention
     parsed = urlparse(url)
     root, ext = splitext(parsed.path)
-    return root[1:], ext[1:]
+    root = root.replace('/', '')  # remove slashes
+    ext = ext.replace('/', '')
+    return root, ext
 
 
-def checkType(url):
-    extension = getType(url)[1].lower()
-    for x in extensions:
-        if extension == x:
-            return True
+def checkType(path):  # Uses magic to get a base mime type, then checks it
+    typemime = mime.from_file(path)  #get mime
+    for x in mimes:
+        if typemime[0:5].lower() == x[0:5]:  
+            return typemime  # Whatever typemine is, it will be truthy
     return False
 
 
 def getName(url):
-    return ".".join(getType(url))
-
-
-def checkAndGet8Link(url):
-    if checkType(url):
-        return getName(url)
-    return None
+    return ".".join(getType(url))  # separated because I am too lazy to put them together
