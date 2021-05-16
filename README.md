@@ -5,6 +5,8 @@ This bot uses links posted in a matrix chat, checks them against a list of file 
 
 Once done, however, it should be using [matrix-nio](https://github.com/poljar/matrix-nio), and have support for encrypted rooms
 
+You may also use my api code for downloading photos and videos. I do not need credit.
+
 ## To the real readme (a stub at this point TBH)
 
 You **MUST** do `sudo apt install libolm-dev` for encrypted room support 
