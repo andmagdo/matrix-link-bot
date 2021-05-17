@@ -61,9 +61,6 @@ def youtube(url):
 
     path = f'{path}.mp4'
 
-    if exists(path):
-        return path
-
     try:
         with ydl:
             result = ydl.extract_info(url)  # idk why, but it just doesn't work without this
